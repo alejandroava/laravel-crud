@@ -13,8 +13,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-       return view('product.product', compact('products'));
+        $products = Product::paginate(10);
+       return view('product.index', compact('products'));
     }
 
     /**
@@ -36,9 +36,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(String $id)
     {
-        //
+        $product = Product::find($id);
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -60,8 +61,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(String $id)
     {
-        //
+        $product = Product::find($id)->delete();
+        return back()->with('success','se ha eliminado correctamente');
+
     }
 }

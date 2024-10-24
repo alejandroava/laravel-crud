@@ -8,9 +8,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/producto',[ProductController::class,'index'])->name('producto.index');
-
-Route::get('/producto', function () {
-    return view('product.product');
-});
+Route::get('/producto',[ProductController::class,'index'])->name('product.index');
+Route::delete('/producto/{id}',[ProductController::class,'destroy'])->name('producto.destroy');
+Route::get('producto/{id}',[ProductController::class,'show'])->name('producto.show');
 
