@@ -37,7 +37,8 @@
                                             @method('DELETE')
                                             @csrf
                                             <a href="">Detalles</a>
-                                            <a href="{{route('producto.show',$product->id)}}">Editar</a>
+                                            <a href="{{route('producto.show',$product->id)}}">Ver</a>
+                                            <a href="{{route('producto.editar',$product->id)}}">Editar</a>
                                            <button type="submit">Eliminar</button>
                                         </form>    
                                     </td>
